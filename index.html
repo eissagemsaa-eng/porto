@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAZBOT Restaurant | Barbecue in New Cairo</title>
+<meta name="description" content="MAZBOT Restaurant, a barbecue restaurant in New Cairo. Dine-in, drive-through and delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#120e0c; --bg2:#1b1512; --card:#221a16; --line:#3a2d26;
+  --text:#f6ede6; --muted:#b9a99d; --ember:#ff6a2b; --gold:#ffb347;
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:Fraunces,serif;line-height:1.1;letter-spacing:-.02em}
+.eyebrow{color:var(--ember);font-weight:600;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(18,14,12,.78);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:Fraunces,serif;font-weight:800;font-size:1.4rem;letter-spacing:.04em}
+.logo span{color:var(--ember)}
+nav ul{display:flex;gap:28px;list-style:none;font-size:.95rem;color:var(--muted)}
+nav ul a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;transition:.25s;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:linear-gradient(135deg,var(--ember),#ff4d1a);color:#fff;box-shadow:0 10px 30px -10px rgba(255,106,43,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(255,106,43,.9)}
+.btn-ghost{border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--ember);color:var(--ember)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:110px 0 90px}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:640px;height:640px;background:radial-gradient(circle,rgba(255,106,43,.28),transparent 65%);filter:blur(10px)}
+.hero::after{content:"";position:absolute;left:-200px;bottom:-260px;width:560px;height:560px;background:radial-gradient(circle,rgba(255,179,71,.14),transparent 65%)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;margin:18px 0 22px}
+.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--muted);font-size:1.12rem;max-width:520px;margin-bottom:34px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.rating-card{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:28px;padding:36px;text-align:center;box-shadow:0 30px 60px -30px #000}
+.rating-card .big{font-family:Fraunces,serif;font-size:5.4rem;font-weight:800;line-height:1;background:linear-gradient(120deg,var(--gold),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stars{color:var(--gold);letter-spacing:.25em;font-size:1.2rem;margin:10px 0 6px}
+.rating-card small{color:var(--muted)}
+.rating-card hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+.price{display:flex;justify-content:space-between;font-size:.95rem;color:var(--muted)}
+.price b{color:var(--text)}
+
+/* ribbon */
+.ribbon{border-block:1px solid var(--line);background:var(--bg2)}
+.ribbon .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.ribbon div{padding:26px 20px;text-align:center;border-right:1px solid var(--line)}
+.ribbon div:last-child{border:0}
+.ribbon strong{display:block;font-family:Fraunces,serif;font-size:1.25rem}
+.ribbon span{color:var(--muted);font-size:.9rem}
+
+section{padding:100px 0}
+.head{max-width:620px;margin-bottom:50px}
+.head h2{font-size:clamp(2rem,4vw,3rem);margin:12px 0 14px}
+.head p{color:var(--muted)}
+
+/* menu */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:.3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--ember)}
+.card .ico{font-size:2rem;margin-bottom:18px}
+.card h3{font-size:1.4rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem}
+.note{margin-top:26px;color:var(--muted);font-size:.9rem;border:1px dashed var(--line);border-radius:14px;padding:14px 18px}
+
+/* about */
+.about{background:var(--bg2);border-block:1px solid var(--line)}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about h2{font-size:clamp(2rem,4vw,3rem);margin:12px 0 18px}
+.about p{color:var(--muted);margin-bottom:16px}
+.pills{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.pill b{display:block;font-family:Fraunces,serif;font-size:1.7rem;color:var(--ember)}
+.pill span{color:var(--muted);font-size:.9rem}
+
+/* visit */
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px}
+.box h3{font-size:1.5rem;margin-bottom:20px}
+.row{display:flex;gap:14px;margin-bottom:18px;color:var(--muted)}
+.row b{color:var(--text);display:block;font-weight:600}
+.map{min-height:300px;background:
+  linear-gradient(135deg,rgba(255,106,43,.18),transparent),
+  repeating-linear-gradient(45deg,#1d1511 0 14px,#231a15 14px 28px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px}
+.map .pin{font-size:3rem}
+
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media(max-width:860px){
+  nav ul{display:none}
+  .hero{padding:70px 0 60px}
+  .hero .wrap,.about .wrap,.visit .wrap{grid-template-columns:1fr}
+  .ribbon .wrap{grid-template-columns:1fr}
+  .ribbon div{border-right:0;border-bottom:1px solid var(--line)}
+  section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">MAZ<span>BOT</span></a>
+    <nav><ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul></nav>
+    <a href="#visit" class="btn btn-primary">Find us</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Barbecue · New Cairo</span>
+        <h1>Fire-grilled, <em>done right.</em></h1>
+        <p class="lead">MAZBOT is a barbecue restaurant in New Cairo serving flame-grilled favorites at fair prices. Eat in, drive through, or have it delivered.</p>
+        <div class="cta">
+          <a href="#menu" class="btn btn-primary">See the menu</a>
+          <a href="#visit" class="btn btn-ghost">Get directions</a>
+        </div>
+      </div>
+      <aside class="rating-card">
+        <div class="big">4.9</div>
+        <div class="stars">★★★★★</div>
+        <small>Rated by 86 guests on Google Maps</small>
+        <hr>
+        <div class="price"><span>Per person</span><b>E£1–200</b></div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="ribbon">
+    <div class="wrap">
+      <div><strong>Dine-in</strong><span>Sit down and enjoy</span></div>
+      <div><strong>Drive-through</strong><span>Quick pickup, no parking</span></div>
+      <div><strong>Delivery</strong><span>Hot to your door</span></div>
+    </div>
+  </div>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Menu</span>
+        <h2>From the grill</h2>
+        <p>A taste of what comes off the fire. Guests mention the flavor, the clean dining room and the friendly staff.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="ico">🔥</div><h3>Grills</h3><p>Add your signature grilled meats here.</p></article>
+        <article class="card"><div class="ico">🥙</div><h3>Sandwiches</h3><p>Add your sandwiches and wraps here.</p></article>
+        <article class="card"><div class="ico">🍚</div><h3>Sides</h3><p>Add rice, salads, dips and bread here.</p></article>
+        <article class="card"><div class="ico">🍰</div><h3>Sweets</h3><p>Add desserts and drinks here.</p></article>
+      </div>
+      <p class="note">Edit these four cards with your real dishes and prices before publishing.</p>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>Good food, clean kitchen, warm welcome.</h2>
+        <p>MAZBOT is built around honest barbecue: quality ingredients, proper heat and a team that treats every guest with respect.</p>
+        <p>Whether you're stopping by on the way home or settling in with family, we keep it simple, tasty and affordable.</p>
+      </div>
+      <div class="pills">
+        <div class="pill"><b>4.9★</b><span>Average rating</span></div>
+        <div class="pill"><b>86</b><span>Google reviews</span></div>
+        <div class="pill"><b>3 ways</b><span>To order</span></div>
+        <div class="pill"><b>E£1–200</b><span>Per person</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="visit">
+    <div class="wrap">
+      <div class="box">
+        <h3>Visit MAZBOT</h3>
+        <div class="row"><span>📍</span><div><b>Address</b>2F64+2QW, New Cairo 1, Cairo Governorate 4724111</div></div>
+        <div class="row"><span>🕒</span><div><b>Hours</b>Add opening hours here</div></div>
+        <div class="row"><span>📞</span><div><b>Phone</b>Add phone number here</div></div>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=2F64%2B2QW%20New%20Cairo">Open in Google Maps</a>
+      </div>
+      <div class="box map">
+        <div class="pin">📍</div>
+        <h3>New Cairo 1</h3>
+        <p style="color:var(--muted)">Plus code 2F64+2QW</p>
+        <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=2F64%2B2QW%20New%20Cairo">Get directions</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y"></span> MAZBOT Restaurant</span>
+    <span>Barbecue · New Cairo, Egypt</span>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
